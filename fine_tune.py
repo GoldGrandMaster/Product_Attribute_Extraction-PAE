@@ -223,15 +223,15 @@ if __name__ == "__main__":
         logger.info("(Epoch {}) VALID LOSS:{:.4f} {}".format((epoch+1),
                                                              total_loss/(i+1), metrics_to_string(metrics)))
 
-        # if total_loss/(i+1) < min_loss and metrics["F1"] >= max_f1:
-        #     min_loss = total_loss/(i+1)
-        #     max_f1 = metrics["F1"]
+        if total_loss/(i+1) < min_loss and metrics["F1"] >= max_f1:
+            min_loss = total_loss/(i+1)
+            max_f1 = metrics["F1"]
 
-        #     model_path = "{}model-best.pth".format(model_dir)
-        #     logger.info("save model checkpoint at {}".format(model_path))
-        #     save(model_path, model, optimizer)
-        #     # https://github.com/huggingface/transformers/issues/7849
+            model_path = "{}model-best.pth".format(model_dir)
+            logger.info("save model checkpoint at {}".format(model_path))
+            save(model_path, model, optimizer)
+            # https://github.com/huggingface/transformers/issues/7849
 
-        #     score = seqeval_metrics.f1_score(list_label, list_hyp)
-        #     print(' - f1: {:04.2f}'.format(score * 100))
-        #     print(seqeval_metrics.classification_report(list_label, list_hyp, digits=4))
+            score = seqeval_metrics.f1_score(list_label, list_hyp)
+            print(' - f1: {:04.2f}'.format(score * 100))
+            print(seqeval_metrics.classification_report(list_label, list_hyp, digits=4))
