@@ -25,9 +25,9 @@ from modules.data_utils import NerShopeeDataset, NerDataLoader
 from modules.utils import set_seed, customTime
 
 
-# def get_lr(optimizer):
-#     for param_group in optimizer.param_groups:
-#         return param_group['lr']
+def get_lr(optimizer):
+    for param_group in optimizer.param_groups:
+        return param_group['lr']
 
 
 def metrics_to_string(metric_dict):
@@ -60,12 +60,12 @@ if __name__ == "__main__":
     max_seq_len = 128
     learning_rate = 5e-5
 
-    model_dir = "{}{}_{}_{}".format(
-        model_dir, batch_size, max_seq_len, learning_rate)
-    if use_regularization:
-        model_dir += "_regularization"
+    # model_dir = "{}{}_{}_{}".format(
+    #     model_dir, batch_size, max_seq_len, learning_rate)
+    # if use_regularization:
+    #     model_dir += "_regularization"
 
-    model_dir += "/"
+    # model_dir += "/"
 
     # Train
     n_epochs = 30
