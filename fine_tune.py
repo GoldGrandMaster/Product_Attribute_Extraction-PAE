@@ -157,30 +157,30 @@ if __name__ == "__main__":
         total_train_loss = 0
         list_hyp, list_label = [], []
 
-        train_pbar = tqdm(train_loader, leave=True, total=len(train_loader))
-        for i, batch_data in enumerate(train_pbar):
-            # Forward model
-            loss, batch_hyp, batch_label = forward_word_classification(
-                model, batch_data[:-1], i2w=i2w, device='cuda')
+        # train_pbar = tqdm(train_loader, leave=True, total=len(train_loader))
+        # for i, batch_data in enumerate(train_pbar):
+        #     # Forward model
+        #     loss, batch_hyp, batch_label = forward_word_classification(
+        #         model, batch_data[:-1], i2w=i2w, device='cuda')
 
-            tr_loss = loss.item()
+        #     tr_loss = loss.item()
 
-            if np.isnan(tr_loss):
-                break
-            else:
-                # Update model
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+        #     if np.isnan(tr_loss):
+        #         break
+        #     else:
+        #         # Update model
+        #         optimizer.zero_grad()
+        #         loss.backward()
+        #         optimizer.step()
 
-                total_train_loss = total_train_loss + tr_loss
+        #         total_train_loss = total_train_loss + tr_loss
 
-                # Calculate metrics
-                list_hyp += batch_hyp
-                list_label += batch_label
+        #         # Calculate metrics
+        #         list_hyp += batch_hyp
+        #         list_label += batch_label
 
-                train_pbar.set_description("(Epoch {}) TRAIN LOSS:{:.4f} LR:{:.8f}".format((epoch+1),
-                                                                                           total_train_loss/(i+1), get_lr(optimizer)))
+        #         train_pbar.set_description("(Epoch {}) TRAIN LOSS:{:.4f} LR:{:.8f}".format((epoch+1),
+        #                                                                                    total_train_loss/(i+1), get_lr(optimizer)))
 
         # Calculate train metric
         metrics = ner_metrics_fn(list_hyp, list_label)
