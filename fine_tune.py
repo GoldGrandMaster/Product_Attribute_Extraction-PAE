@@ -25,9 +25,9 @@ from modules.data_utils import NerShopeeDataset, NerDataLoader
 from modules.utils import set_seed, customTime
 
 
-def get_lr(optimizer):
-    for param_group in optimizer.param_groups:
-        return param_group['lr']
+# def get_lr(optimizer):
+#     for param_group in optimizer.param_groups:
+#         return param_group['lr']
 
 
 def metrics_to_string(metric_dict):
