@@ -30,7 +30,7 @@ if __name__ == "__main__" :
         else :
             instance.append(l)
 
-    # random.shuffle(data)
+    random.shuffle(data)
 
     train_size = int(0.9 * len(data))
 
