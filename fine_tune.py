@@ -195,11 +195,11 @@ if __name__ == "__main__":
         #     logger.info("save model checkpoint at {}".format(model_path))
 
         # Evaluate on validation
-        model.eval()
-        torch.set_grad_enabled(False)
+        # model.eval()
+        # torch.set_grad_enabled(False)
 
-        total_loss, total_correct, total_labels = 0, 0, 0
-        list_hyp, list_label = [], []
+        # total_loss, total_correct, total_labels = 0, 0, 0
+        # list_hyp, list_label = [], []
 
         pbar = tqdm(valid_loader, leave=True, total=len(valid_loader))
         for i, batch_data in enumerate(pbar):
