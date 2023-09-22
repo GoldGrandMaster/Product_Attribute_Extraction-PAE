@@ -34,8 +34,8 @@ if __name__ == "__main__" :
 
     train_size = int(0.9 * len(data))
 
-    train_fpath = "data/ecommerce-train.txt"
-    test_fpath = "data/ecommerce-test.txt"
+    # train_fpath = "data/ecommerce-train.txt"
+    # test_fpath = "data/ecommerce-test.txt"
 
     save_data(data[:train_size], train_fpath)
     save_data(data[train_size:], test_fpath)
