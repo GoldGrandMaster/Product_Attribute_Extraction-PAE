@@ -16,9 +16,9 @@ if __name__ == "__main__" :
     
     fpath = "data/ecommerce.txt"
 
-    file = open(fpath)
-    lines = file.readlines()
-    file.close()
+    # file = open(fpath)
+    # lines = file.readlines()
+    # file.close()
 
     data = []
     instance = []
