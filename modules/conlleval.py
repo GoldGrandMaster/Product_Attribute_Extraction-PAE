@@ -109,47 +109,47 @@ def end_of_chunk(prev_tag, tag, prev_type, type_):
     return chunk_end
 
 
-def evaluate_fn(guessed, correct, last_correct, last_correct_type, last_guessed, last_guessed_type, in_correct, counts):
-    guessed, guessed_type = parse_tag(guessed)
-    correct, correct_type = parse_tag(correct)
+# def evaluate_fn(guessed, correct, last_correct, last_correct_type, last_guessed, last_guessed_type, in_correct, counts):
+#     guessed, guessed_type = parse_tag(guessed)
+#     correct, correct_type = parse_tag(correct)
 
-    end_correct = end_of_chunk(last_correct, correct,
-                               last_correct_type, correct_type)
-    end_guessed = end_of_chunk(last_guessed, guessed,
-                               last_guessed_type, guessed_type)
-    start_correct = start_of_chunk(last_correct, correct,
-                                   last_correct_type, correct_type)
-    start_guessed = start_of_chunk(last_guessed, guessed,
-                                   last_guessed_type, guessed_type)
+#     end_correct = end_of_chunk(last_correct, correct,
+#                                last_correct_type, correct_type)
+#     end_guessed = end_of_chunk(last_guessed, guessed,
+#                                last_guessed_type, guessed_type)
+#     start_correct = start_of_chunk(last_correct, correct,
+#                                    last_correct_type, correct_type)
+#     start_guessed = start_of_chunk(last_guessed, guessed,
+#                                    last_guessed_type, guessed_type)
 
-    if in_correct:
-        if (end_correct and end_guessed and
-                last_guessed_type == last_correct_type):
-            in_correct = False
-            counts.correct_chunk += 1
-            counts.t_correct_chunk[last_correct_type] += 1
-        elif (end_correct != end_guessed or guessed_type != correct_type):
-            in_correct = False
+#     if in_correct:
+#         if (end_correct and end_guessed and
+#                 last_guessed_type == last_correct_type):
+#             in_correct = False
+#             counts.correct_chunk += 1
+#             counts.t_correct_chunk[last_correct_type] += 1
+#         elif (end_correct != end_guessed or guessed_type != correct_type):
+#             in_correct = False
 
-    if start_correct and start_guessed and guessed_type == correct_type:
-        in_correct = True
+#     if start_correct and start_guessed and guessed_type == correct_type:
+#         in_correct = True
 
-    if start_correct:
-        counts.found_correct += 1
-        counts.t_found_correct[correct_type] += 1
-    if start_guessed:
-        counts.found_guessed += 1
-        counts.t_found_guessed[guessed_type] += 1
-    if correct == guessed and guessed_type == correct_type:
-        counts.correct_tags += 1
-    counts.token_counter += 1
+#     if start_correct:
+#         counts.found_correct += 1
+#         counts.t_found_correct[correct_type] += 1
+#     if start_guessed:
+#         counts.found_guessed += 1
+#         counts.t_found_guessed[guessed_type] += 1
+#     if correct == guessed and guessed_type == correct_type:
+#         counts.correct_tags += 1
+#     counts.token_counter += 1
 
-    last_guessed = guessed
-    last_correct = correct
-    last_guessed_type = guessed_type
-    last_correct_type = correct_type
+#     last_guessed = guessed
+#     last_correct = correct
+#     last_guessed_type = guessed_type
+#     last_correct_type = correct_type
 
-    return last_correct, last_correct_type, last_guessed, last_guessed_type, in_correct, counts
+#     return last_correct, last_correct_type, last_guessed, last_guessed_type, in_correct, counts
 
 
 def evaluate(hyps_list, labels_list):
