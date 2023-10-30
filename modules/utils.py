@@ -27,9 +27,9 @@ from modules.forward_fn import forward_word_classification
 from modules.word_classification import BertForWordClassification
 
 # import StemmerFactory class
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-factory = StemmerFactory() # create stemmer
-stemmer = factory.create_stemmer()
+# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+# factory = StemmerFactory() # create stemmer
+# stemmer = factory.create_stemmer()
 
 
 def customTime(*args):
