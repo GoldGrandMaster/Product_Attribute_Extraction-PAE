@@ -147,8 +147,8 @@ def translate_english_to_indonesia(sentences, batch_size=128):
     txt_model.cuda()
     txt_model.eval()
 
-    # trans_texts = []
-    # CHUNK = batch_size
+    trans_texts = []
+    CHUNK = batch_size
 
     # print('translating texts')
     CTS = len(sentences)//CHUNK
