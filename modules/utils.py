@@ -144,8 +144,8 @@ def translate_english_to_indonesia(sentences, batch_size=128):
     tokenizer = AutoTokenizer.from_pretrained("../input/en-id-converter")
     txt_model = AutoModelForSeq2SeqLM.from_pretrained("../input/en-id-converter")
 
-    # txt_model.cuda()
-    # txt_model.eval()
+    txt_model.cuda()
+    txt_model.eval()
 
     trans_texts = []
     CHUNK = batch_size
